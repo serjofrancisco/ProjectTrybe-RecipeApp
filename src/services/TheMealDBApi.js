@@ -9,22 +9,8 @@ export const getCategory = async () => {
   return response.ok ? Promise.resolve(json) : Promise.reject(json);
 };
 
-export const searchByIngredient = async (search) => {
-  const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${search}`);
-  const json = await response.json();
-  console.log(json);
-  return response.ok ? Promise.resolve(json) : Promise.reject(json);
-};
-
-export const searchByName = async (search) => {
-  const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?s=${search}`);
-  const json = await response.json();
-  console.log(json);
-  return response.ok ? Promise.resolve(json) : Promise.reject(json);
-};
-
-export const searchByFirstLetter = async (search) => {
-  const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?f=${search}`);
+export const searchFood = async (typeSearch, search) => {
+  const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?${typeSearch}=${search}`);
   const json = await response.json();
   console.log(json);
   return response.ok ? Promise.resolve(json) : Promise.reject(json);

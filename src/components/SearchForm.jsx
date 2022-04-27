@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import {
-  searchByIngredient,
-  searchByName,
-  searchByFirstLetter } from '../services/TheMealDBApi';
+import PropTypes from 'prop-types';
+import { searchFood } from '../services/TheMealDBApi';
+import { searchDrink } from '../services/TheCockTailDBAPI';
 
-export default function SearchForm() {
+export default function SearchForm({ page }) {
   const [search, setSearch] = useState('');
   const [typeSearch, setTypeSearch] = useState('');
 
@@ -12,18 +11,12 @@ export default function SearchForm() {
 
   const handleSearch = () => {
     let result = [];
-    switch (typeSearch) {
-    case 'ingredient':
-      result = searchByIngredient(search);
-      break;
-    case 'name':
-      result = searchByName(search);
-      break;
-    case 'first-letter':
-      result = searchByFirstLetter(search);
-      break;
-    default:
-      result = [];
+    if (typeSearch === 'first-letter' && search.length > 1) {
+      global.alert('Your search must have only 1 (one) character');
+    } else if (page === 'Foods') {
+      result = searchFood(typeSearch, search);
+    } else if (page === 'Drinks') {
+      result = searchDrink(typeSearch, search);
     }
     return result;
   };
@@ -39,33 +32,37 @@ export default function SearchForm() {
           onChange={ ({ target: { value } }) => setSearch(value) }
         />
       </label>
+      <span>Busca por...</span>
       <label htmlFor="ingredients">
+        Ingrediente:
         <input
           type="radio"
           onClick={ handleTypeSearch }
           id="ingredients"
           data-testid="ingredient-search-radio"
           name="search"
-          value="ingredient"
+          value="i"
         />
       </label>
       <label htmlFor="name">
+        Nome:
         <input
           type="radio"
           id="name"
           data-testid="name-search-radio"
           name="search"
-          value="name"
+          value="s"
           onClick={ handleTypeSearch }
         />
       </label>
       <label htmlFor="first-letter">
+        Primeira Letra:
         <input
           type="radio"
           id="first-letter"
           data-testid="first-letter-search-radio"
           name="search"
-          value="first-letter"
+          value="f"
           onClick={ handleTypeSearch }
         />
       </label>
@@ -79,3 +76,7 @@ export default function SearchForm() {
     </div>
   );
 }
+
+SearchForm.propTypes = {
+  page: PropTypes.string,
+}.isRequired;
