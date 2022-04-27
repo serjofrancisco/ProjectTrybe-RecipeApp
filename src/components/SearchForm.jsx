@@ -1,24 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
+import MyContext from '../contexts/MyContext';
 import { searchFood } from '../services/TheMealDBApi';
 import { searchDrink } from '../services/TheCockTailDBAPI';
 
 export default function SearchForm({ page }) {
   const [search, setSearch] = useState('');
   const [typeSearch, setTypeSearch] = useState('');
+  const [url, setUrl] = useState('');
 
-  const handleTypeSearch = ({ target: { value } }) => setTypeSearch(value);
+  const { setData } = useContext(MyContext);
 
-  const handleSearch = () => {
-    let result = [];
-    if (typeSearch === 'first-letter' && search.length > 1) {
+  const handleTypeSearch = ({ target: { value, className } }) => {
+    setTypeSearch(value);
+    setUrl(className);
+  };
+
+  const handleSearch = async () => {
+    let searchResult = {};
+    if (typeSearch === 'f' && search.length > 1) {
       global.alert('Your search must have only 1 (one) character');
     } else if (page === 'Foods') {
-      result = searchFood(typeSearch, search);
+      searchResult = await searchFood(url, typeSearch, search);
+      setData({ searchResult: searchResult.meals, typePage: page.toLowerCase() });
     } else if (page === 'Drinks') {
-      result = searchDrink(typeSearch, search);
+      searchResult = await searchDrink(url, typeSearch, search);
+      setData({ searchResult: searchResult.drinks, typePage: page.toLowerCase() });
     }
-    return result;
   };
 
   return (
@@ -42,6 +50,7 @@ export default function SearchForm({ page }) {
           data-testid="ingredient-search-radio"
           name="search"
           value="i"
+          className="filter"
         />
       </label>
       <label htmlFor="name">
@@ -52,6 +61,7 @@ export default function SearchForm({ page }) {
           data-testid="name-search-radio"
           name="search"
           value="s"
+          className="search"
           onClick={ handleTypeSearch }
         />
       </label>
@@ -63,6 +73,7 @@ export default function SearchForm({ page }) {
           data-testid="first-letter-search-radio"
           name="search"
           value="f"
+          className="search"
           onClick={ handleTypeSearch }
         />
       </label>

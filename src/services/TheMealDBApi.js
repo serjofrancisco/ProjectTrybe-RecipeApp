@@ -9,8 +9,8 @@ export const getCategory = async () => {
   return response.ok ? Promise.resolve(json) : Promise.reject(json);
 };
 
-export const searchFood = async (typeSearch, search) => {
-  const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?${typeSearch}=${search}`);
+export const searchFood = async (url, typeSearch, search) => {
+  const response = await fetch(`https://www.themealdb.com/api/json/v1/1/${url}.php?${typeSearch}=${search}`);
   const json = await response.json();
   console.log(json);
   return response.ok ? Promise.resolve(json) : Promise.reject(json);
@@ -25,6 +25,13 @@ export const getNationality = async () => {
 
 export const getIngredients = async () => {
   const response = await fetch(INGREDIENTES_BASE_API);
+  const json = await response.json();
+  console.log(json);
+  return response.ok ? Promise.resolve(json) : Promise.reject(json);
+};
+
+export const getMeal = async (id) => {
+  const response = await fetch(`www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
   const json = await response.json();
   console.log(json);
   return response.ok ? Promise.resolve(json) : Promise.reject(json);

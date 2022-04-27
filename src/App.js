@@ -12,6 +12,7 @@ import DrinksIngredients from './pages/DrinksIngredients';
 import FoodsNationalities from './pages/FoodsNationalities';
 import DoneRecipes from './pages/DoneRecipes';
 import Favorites from './pages/Favorites';
+import Details from './pages/Details';
 // import './App.css';
 import NotFound from './pages/NotFound';
 // import rockGlass from './images/rockGlass.svg';
@@ -25,13 +26,13 @@ function App() {
       <Route exact path="/drinks" component={ Drinks } />
       <Route
         exact
-        path="/foods/{id-da-receita}"
-        render={ (props) => <Foods { ...props } /> }
+        path="/foods/:id"
+        render={ (props) => <Details { ...props } /> }
       />
       <Route
         exact
-        path="/drinks/{id-da-receita}"
-        render={ (props) => <Drinks { ...props } /> }
+        path="/drinks/:id"
+        render={ (props) => <Details { ...props } /> }
       />
       <Route exact path="/explore" component={ Explore } />
       <Route exact path="/explore/foods" component={ ExploreFoods } />

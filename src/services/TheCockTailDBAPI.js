@@ -5,9 +5,9 @@ export const getCategory = async () => {
   return response.ok ? Promise.resolve(json) : Promise.reject(json);
 };
 
-export const searchDrink = async (typeSearch, search) => {
+export const searchDrink = async (url, typeSearch, search) => {
   const response = await fetch(
-    `www.thecocktaildb.com/api/json/v1/1/filter.php?${typeSearch}=${search}`,
+    `https://www.thecocktaildb.com/api/json/v1/1/${url}.php?${typeSearch}=${search}`,
   );
   const json = await response.json();
   console.log(json);
