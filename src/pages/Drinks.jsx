@@ -1,9 +1,10 @@
 import React from 'react';
+import Header from '../components/Header';
 
 function Drinks() {
   return (
     <div>
-      <h1>DRINKS</h1>
+      <Header title="Drinks" existeButton="true" />
     </div>
   );
 }

@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
-// import { useHistory } from "react-router";
-import PropTypes from 'prop-types';
-// import { getCategory,
-//   getNationality, getIngredients, getRecipes } from '../services/TheMealDBApi';
+import { useHistory } from 'react-router-dom';
 
-export default function Login(props) {
+export default function Login() {
   const [userEmail, setUserEmail] = useState('');
   const [password, setPassword] = useState('');
   const [cantSubmit, setCantSubmit] = useState(true);
@@ -18,9 +15,9 @@ export default function Login(props) {
     else setCantSubmit(true);
   }, [userEmail, password]);
 
+  const history = useHistory();
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { history } = props;
     const obj = { email: userEmail };
     localStorage.setItem('mealsToken', '1');
     localStorage.setItem('cocktailsToken', '1');
@@ -60,9 +57,3 @@ export default function Login(props) {
     </form>
   );
 }
-
-Login.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func,
-  }),
-}.isRequired;
