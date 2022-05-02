@@ -13,7 +13,7 @@ import FoodsNationalities from './pages/FoodsNationalities';
 import DoneRecipes from './pages/DoneRecipes';
 import Favorites from './pages/Favorites';
 import Details from './pages/Details';
-// import './App.css';
+import './App.css';
 import NotFound from './pages/NotFound';
 // import rockGlass from './images/rockGlass.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';

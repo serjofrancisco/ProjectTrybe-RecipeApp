@@ -1,35 +1,38 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Header from '../components/Header';
-
 import MyContext from '../contexts/MyContext';
-
 import Footer from '../components/Footer';
-
+import CardFood from '../components/CardFood';
+import { searchFood } from '../services/TheMealDBApi';
+import CategoryBtns from '../components/CategoryBtns';
 
 function Foods() {
-  const { data } = useContext(MyContext);
+  const { data, setData } = useContext(MyContext);
   const doze = 12;
+
+  const handleFood = async () => {
+    const { meals } = await searchFood('search', 's', '');
+    setData({ searchResult: [...meals], typePage: 'foods' });
+  };
+
+  useEffect(() => {
+    handleFood();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div>
       <Header title="Foods" existeButton="true" />
-
-      {(!data.searchResult)
-        ? global.alert('Sorry, we haven\'t found any recipes for these filters.') : (
-          data.searchResult.map((element, i) => (
-            (i < doze) && (
-              <div key={ element.idMeal } data-testid={ `${i}-recipe-card` }>
-                <img
-                  src={ element.strMealThumb }
-                  alt="search"
-                  data-testid={ `${i}-card-img` }
-                />
-                <p data-testid={ `${i}-card-name` }>{element.strMeal}</p>
-              </div>
-            )
-          )))}
+      <CategoryBtns page="foods" />
+      {
+        data.searchResult.map((element, i) => (
+          (i < doze) && (
+            <CardFood element={ element } i={ i } key={ element.idMeal } />
+          )
+        ))
+      }
 
       <Footer existeFooter="true" />
-
     </div>
   );
 }
