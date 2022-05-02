@@ -27,6 +27,9 @@ export default function SearchForm({ page }) {
       searchResult = await searchDrink(url, typeSearch, search);
       setData({ searchResult: searchResult.drinks, typePage: page.toLowerCase() });
     }
+    // if (searchResult.drinks.length === 0 || searchResult.meals.length === 0) {
+    //   global.alert('Sorry, we haven\'t found any recipes for these filters.');
+    // }
   };
 
   return (
