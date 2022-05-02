@@ -1,6 +1,10 @@
 import React, { useContext } from 'react';
 import Header from '../components/Header';
+
 import MyContext from '../contexts/MyContext';
+
+import Footer from '../components/Footer';
+
 
 function Foods() {
   const { data } = useContext(MyContext);
@@ -8,6 +12,7 @@ function Foods() {
   return (
     <div>
       <Header title="Foods" existeButton="true" />
+
       {(!data.searchResult)
         ? global.alert('Sorry, we haven\'t found any recipes for these filters.') : (
           data.searchResult.map((element, i) => (
@@ -22,6 +27,9 @@ function Foods() {
               </div>
             )
           )))}
+
+      <Footer existeFooter="true" />
+
     </div>
   );
 }
