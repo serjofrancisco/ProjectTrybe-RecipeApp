@@ -1,7 +1,6 @@
-export const getCategory = async () => {
-  const response = await fetch(CATEGORIAS_BASE_API);
+export const getDrinksCategory = async () => {
+  const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list');
   const json = await response.json();
-  console.log(json);
   return response.ok ? Promise.resolve(json) : Promise.reject(json);
 };
 
@@ -10,6 +9,13 @@ export const searchDrink = async (url, typeSearch, search) => {
     `https://www.thecocktaildb.com/api/json/v1/1/${url}.php?${typeSearch}=${search}`,
   );
   const json = await response.json();
-  console.log(json);
+  return response.ok ? Promise.resolve(json) : Promise.reject(json);
+};
+
+export const filterDrinkByCategory = async (category) => {
+  const response = await fetch(
+    `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`,
+  );
+  const json = await response.json();
   return response.ok ? Promise.resolve(json) : Promise.reject(json);
 };

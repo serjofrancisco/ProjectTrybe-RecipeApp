@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import MyContext from '../contexts/MyContext';
 import { searchFood } from '../services/TheMealDBApi';
 import { searchDrink } from '../services/TheCockTailDBAPI';
@@ -15,21 +16,35 @@ export default function SearchForm({ page }) {
     setTypeSearch(value);
     setUrl(className);
   };
+  const history = useHistory();
+  const testOne = (searchResult) => {
+    if (searchResult.length === 1) {
+      const id = (page === 'Foods') ? searchResult[0].idMeal
+        : searchResult[0].idDrink;
+      history.push(`/${page.toLowerCase()}/${id}`);
+    }
+  };
 
   const handleSearch = async () => {
-    let searchResult = {};
     if (typeSearch === 'f' && search.length > 1) {
       global.alert('Your search must have only 1 (one) character');
     } else if (page === 'Foods') {
-      searchResult = await searchFood(url, typeSearch, search);
-      setData({ searchResult: searchResult.meals, typePage: page.toLowerCase() });
+      const { meals } = await searchFood(url, typeSearch, search);
+      if (meals) {
+        testOne(meals);
+        setData({ searchResult: meals, typePage: page.toLowerCase() });
+      } else {
+        global.alert('Sorry, we haven\'t found any recipes for these filters.');
+      }
     } else if (page === 'Drinks') {
-      searchResult = await searchDrink(url, typeSearch, search);
-      setData({ searchResult: searchResult.drinks, typePage: page.toLowerCase() });
+      const { drinks } = await searchDrink(url, typeSearch, search);
+      if (drinks) {
+        testOne(drinks);
+        setData({ searchResult: drinks, typePage: page.toLowerCase() });
+      } else {
+        global.alert('Sorry, we haven\'t found any recipes for these filters.');
+      }
     }
-    // if (searchResult.drinks.length === 0 || searchResult.meals.length === 0) {
-    //   global.alert('Sorry, we haven\'t found any recipes for these filters.');
-    // }
   };
 
   return (
