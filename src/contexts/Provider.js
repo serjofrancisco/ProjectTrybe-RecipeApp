@@ -15,8 +15,6 @@ export default function Provider({ children }) {
       const id = (data.typePage === 'foods') ? data.searchResult[0].idMeal
         : data.searchResult[0].idDrink;
       history.push(`/${data.typePage}/${id}`);
-    } else {
-      // fazer lista em cima de data.typePage
     }
   };
 
