@@ -8,7 +8,8 @@ export default function Provider({ children }) {
     searchResult: [],
     typePage: '',
   });
-
+  const [receipe, setReceipe] = useState({});
+  const [recommendations, setRecommendations] = useState([]);
   // const history = useHistory();
   // const getDetails = () => {
   //   if (data.searchResult.length === 1) {
@@ -30,6 +31,10 @@ export default function Provider({ children }) {
       value={ {
         data,
         setData,
+        receipe,
+        setReceipe,
+        recommendations,
+        setRecommendations,
       } }
     >
       {children}
