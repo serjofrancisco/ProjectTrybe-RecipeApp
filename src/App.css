@@ -1,11 +1,11 @@
 .header {
   align-items: center;
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
   display: flex;
-  justify-content: start;
   height: 60px;
-  padding-top: 10px;
+  justify-content: start;
   padding-left: 10px;
+  padding-top: 10px;
   width: 100%;
 }
 
@@ -16,10 +16,10 @@
 }
 
 .footer {
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
   display: flex;
-  justify-content: space-evenly;
   height: 60px;
+  justify-content: space-evenly;
   padding-top: 10px;
   width: 100%;
 }
