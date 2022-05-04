@@ -10,7 +10,7 @@ export default function Header({ title, existeButton }) {
   const [search, setSearch] = useState(false);
 
   return (
-    <div>
+    <header className="header">
       <Link to="/profile">
         <button
           type="button"
@@ -41,7 +41,7 @@ export default function Header({ title, existeButton }) {
       {(search) && (
         <SearchForm page={ title } />
       )}
-    </div>
+    </header>
   );
 }
 
