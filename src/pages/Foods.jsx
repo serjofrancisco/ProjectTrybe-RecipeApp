@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import MyContext from '../contexts/MyContext';
 import Footer from '../components/Footer';
 import CardFood from '../components/CardFood';
+
 import { searchFood } from '../services/TheMealDBApi';
 import CategoryBtns from '../components/CategoryBtns';
 

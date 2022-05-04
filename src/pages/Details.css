@@ -1,0 +1,7 @@
+.slide {
+  visibility: hidden;
+}
+
+.selected {
+  visibility: visible;
+}
