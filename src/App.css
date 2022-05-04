@@ -1,3 +1,29 @@
+.header {
+  align-items: center;
+  background-color: #e5e5e5;
+  display: flex;
+  height: 60px;
+  justify-content: start;
+  padding-left: 10px;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.profile-btns-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  background-color: #e5e5e5;
+  display: flex;
+  height: 60px;
+  justify-content: space-evenly;
+  padding-top: 10px;
+  width: 100%;
+}
+
 .meals {
   align-items: center;
   background: #0fa36b;

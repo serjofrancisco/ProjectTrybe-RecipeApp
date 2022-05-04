@@ -3,7 +3,6 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import MyContext from '../contexts/MyContext';
 import CardDrink from '../components/CardDrink';
-
 import { searchDrink } from '../services/TheCockTailDBAPI';
 import CategoryBtns from '../components/CategoryBtns';
 
