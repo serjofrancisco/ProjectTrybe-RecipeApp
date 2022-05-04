@@ -11,10 +11,8 @@ function Drinks() {
   const doze = 12;
 
   const handleDrink = async () => {
-    if (!data.searchResult.length) {
-      const { drinks } = await searchDrink('search', 's', '');
-      setData({ searchResult: [...drinks], typePage: 'drinks' });
-    }
+    const { drinks } = await searchDrink('search', 's', '');
+    setData({ searchResult: [...drinks], typePage: 'drinks' });
   };
 
   useEffect(() => {
