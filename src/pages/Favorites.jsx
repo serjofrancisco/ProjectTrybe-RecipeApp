@@ -5,6 +5,7 @@ function Favorites() {
   return (
     <div>
       <Header title="Favorite Recipes" />
+      <p>vamo</p>
     </div>
   );
 }
