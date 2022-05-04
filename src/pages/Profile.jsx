@@ -1,35 +1,41 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
 function Profile() {
-  // const history = useHistory();
+  const history = useHistory();
 
-  // const onClick = () => {
-  //   history.push('/foods');
-  // };
+  const handleLogout = () => {
+    localStorage.clear();
+    history.push('/');
+  };
+
+  const userEmail = JSON.parse(localStorage.getItem('user')).email;
+
   return (
     <div>
       <Header title="Profile" />
       <main>
-        <p data-testid="profile-email">email</p>
+        <p data-testid="profile-email">{userEmail}</p>
         <section className="profile-btns-container">
           <Link to="/done-recipes">
             <button data-testid="profile-done-btn" type="button">
               Done Recipes
             </button>
           </Link>
-          <Link to="/done-recipes">
+          <Link to="/favorite-recipes">
             <button data-testid="profile-favorite-btn" type="button">
               Favorite Recipes
             </button>
           </Link>
-          <Link to="/done-recipes">
-            <button data-testid="profile-logout-btn" type="button">
-              Logout
-            </button>
-          </Link>
+          <button
+            data-testid="profile-logout-btn"
+            onClick={ handleLogout }
+            type="button"
+          >
+            Logout
+          </button>
         </section>
       </main>
       <Footer existeFooter="true" />
