@@ -12,9 +12,11 @@ import DrinksIngredients from './pages/DrinksIngredients';
 import FoodsNationalities from './pages/FoodsNationalities';
 import DoneRecipes from './pages/DoneRecipes';
 import Favorites from './pages/Favorites';
-import Details from './pages/Details';
+import DetailsFoods from './pages/DetailsFoods';
+import DetailsDrinks from './pages/DetailsDrinks';
 import './App.css';
 import NotFound from './pages/NotFound';
+import InProgress from './pages/InProgress';
 // import rockGlass from './images/rockGlass.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -24,16 +26,8 @@ function App() {
       <Route exact path="/" component={ Login } />
       <Route exact path="/foods" component={ Foods } />
       <Route exact path="/drinks" component={ Drinks } />
-      <Route
-        exact
-        path="/foods/:id"
-        render={ (props) => <Details { ...props } /> }
-      />
-      <Route
-        exact
-        path="/drinks/:id"
-        render={ (props) => <Details { ...props } /> }
-      />
+      <Route exact path="/foods/:id" component={ DetailsFoods } />
+      <Route exact path="/drinks/:id" component={ DetailsDrinks } />
       <Route exact path="/explore" component={ Explore } />
       <Route exact path="/explore/foods" component={ ExploreFoods } />
       <Route exact path="/explore/drinks" component={ ExploreDrinks } />
@@ -41,6 +35,8 @@ function App() {
       <Route exact path="/explore/drinks/ingredients" component={ DrinksIngredients } />
       <Route exact path="/explore/foods/nationalities" component={ FoodsNationalities } />
       <Route exact path="/profile" component={ Profile } />
+      <Route exact path="foods/:id/in-progress" component={ InProgress } />
+      <Route exact path="drinks/:id/in-progress" component={ InProgress } />
       <Route exact path="/done-recipes" component={ DoneRecipes } />
       <Route exact path="/favorite-recipes" component={ Favorites } />
       <Route path="*" component={ NotFound } />
