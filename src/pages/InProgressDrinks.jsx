@@ -66,6 +66,7 @@ export default function InProgressDrink() {
             type="checkbox"
             name={ index }
             onChange={ toggleProgress }
+            checked={ progress.some((el) => Number(el) === Number(index)) }
           />
           <span>{ `${recipe[ingredientKey]} ${recipe[measureKey]}` }</span>
         </div>);

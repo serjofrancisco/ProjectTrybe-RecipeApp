@@ -5,7 +5,6 @@ import { toggleFood } from '../helpers/favoriteToggle';
 
 export default function InProgressFood() {
   const { params } = useRouteMatch();
-
   const [recipe, setRecipe] = useState([]);
   const [favorite, setFavorite] = useState();
   const [progress, setProgress] = useState([]);
@@ -45,10 +44,18 @@ export default function InProgressFood() {
   function toggleProgress({ target: { checked, name, parentNode } }) {
     const inProgress = JSON.parse(localStorage.getItem('inProgressRecipes'));
     parentNode.classList.toggle('done');
-    setProgress((prevState) => (
-      checked ? [...prevState, name] : prevState.filter((prog) => prog !== name)
-    ));
-    inProgress.meals[params.id] = progress;
+    if (checked) {
+      setProgress((prevState) => [...prevState, name]);
+      inProgress.meals[params.id] = [...progress, name];
+    } else {
+      const newFav = progress.filter((prog) => Number(prog) !== Number(name));
+      setProgress(newFav);
+      inProgress.meals[params.id] = newFav;
+    }
+    // setProgress((prevState) => (
+    //   checked
+    //     ? [...prevState, name] : prevState.filter((prog) => Number(prog) !== Number(name))
+    // ));
     localStorage.setItem('inProgressRecipes', JSON.stringify(inProgress));
   }
 
@@ -65,8 +72,9 @@ export default function InProgressFood() {
             type="checkbox"
             name={ index }
             onChange={ toggleProgress }
+            checked={ progress.some((el) => Number(el) === Number(index)) }
           />
-          <span>{`${recipe[ingredientKey]} ${recipe[measureKey]}`}</span>
+          <span>{`  ${recipe[ingredientKey]} ${recipe[measureKey]}`}</span>
         </div>);
     });
   return (
