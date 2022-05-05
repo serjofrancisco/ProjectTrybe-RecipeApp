@@ -6,7 +6,7 @@ import { useRouteMatch, Link } from 'react-router-dom';
 import MyContext from '../contexts/MyContext';
 import { searchFood } from '../services/TheMealDBApi';
 import { searchDrink } from '../services/TheCockTailDBAPI';
-
+import { toggleDrink } from '../helpers/favoriteToggle';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 
@@ -63,23 +63,8 @@ function DetailsDrinks() {
     navigator.clipboard.writeText(link);
   };
 
-  const toggleFavorite = (id) => {
-    const favRecipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
-    if (favorite) {
-      const newFavs = favRecipes.filter((fav) => fav.id !== id);
-      localStorage.setItem('favoriteRecipes', JSON.stringify(newFavs));
-    } else {
-      const newFavs = [...favRecipes, {
-        id,
-        type: 'drink',
-        nationality: receipe.strArea,
-        category: receipe.strCategory,
-        alcoholicOrNot: receipe.strAlcoholic,
-        name: receipe.strDrink,
-        image: receipe.strDrinkThumb,
-      }];
-      localStorage.setItem('favoriteRecipes', JSON.stringify(newFavs));
-    }
+  const toggleFavorite = () => {
+    toggleDrink(params.id, receipe, favorite);
     setFavorite((prevState) => !prevState);
   };
 
@@ -147,7 +132,7 @@ function DetailsDrinks() {
       {(copied) && (<span>Link copied!</span>)}
       <button
         type="button"
-        onClick={ () => toggleFavorite(params.id) }
+        onClick={ () => toggleFavorite() }
       >
         <img
           alt="favorite"

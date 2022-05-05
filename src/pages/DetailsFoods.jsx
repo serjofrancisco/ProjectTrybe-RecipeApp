@@ -8,6 +8,7 @@ import { searchFood } from '../services/TheMealDBApi';
 import { searchDrink } from '../services/TheCockTailDBAPI';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
+import { toggleFood } from '../helpers/favoriteToggle';
 
 function DetailsFoods() {
   const { params } = useRouteMatch();
@@ -32,13 +33,24 @@ function DetailsFoods() {
       .then(({ drinks }) => setRecommendations(drinks.filter((_el, i) => i < SIX)));
   }
 
+  const checkFavoriteRecipe = (id) => {
+    const favRecipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
+    const isFav = favRecipes?.some((recipe) => recipe.id === id);
+    setFavorite(isFav);
+  };
+
+  const toggleFavorite = () => {
+    toggleFood(params.id, receipe, favorite);
+    setFavorite((prevState) => !prevState);
+  };
+
   function updateButton(id) {
     const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
     const isDone = doneRecipes?.some((recipe) => recipe.id === id);
 
-    const inProgressRecipes = JSON.parse(localStorage.getItem('inProgressRecipes'));
     let isInProgress = false;
-    if (inProgressRecipes) {
+    if (localStorage.getItem('inProgressRecipes')) {
+      const inProgressRecipes = JSON.parse(localStorage.getItem('inProgressRecipes'));
       isInProgress = Object.keys(inProgressRecipes.meals)
         .some((idMeal) => idMeal === id);
     }
@@ -48,12 +60,6 @@ function DetailsFoods() {
       continueRecipe: isInProgress,
     });
   }
-
-  const favoriteRecipe = (id) => {
-    const favRecipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
-    const isFav = favRecipes?.some((recipe) => recipe.id === id);
-    setFavorite(isFav);
-  };
 
   const shareRecipe = () => {
     setCopied(true);
@@ -65,7 +71,7 @@ function DetailsFoods() {
   useEffect(() => {
     fillReceipe(params.id);
     updateButton(params.id);
-    favoriteRecipe(params.id);
+    checkFavoriteRecipe(params.id);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -126,7 +132,7 @@ function DetailsFoods() {
       {(copied) && (<span>Link copied!</span>)}
       <button
         type="button"
-        onClick={ favoriteRecipe }
+        onClick={ () => toggleFavorite() }
       >
         <img
           alt="favorite"

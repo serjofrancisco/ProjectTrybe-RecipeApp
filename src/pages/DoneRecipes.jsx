@@ -56,7 +56,7 @@ function DoneRecipes() {
       </nav>
       <main>
         {
-          recipesDone.map((element, i) => (
+          recipesDone?.map((element, i) => (
             <CardDoneRecipeFood element={ element } i={ i } key={ element.id } />
           ))
         }

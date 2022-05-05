@@ -47,8 +47,16 @@ export default function SearchForm({ page }) {
     }
   };
 
+  const style = {
+    position: 'fixed',
+    top: '85px',
+    background: 'gray',
+    left: '0',
+    width: '100%',
+  };
+
   return (
-    <div>
+    <div style={ style }>
       <label htmlFor="search">
         <input
           type="text"
