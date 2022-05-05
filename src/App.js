@@ -16,7 +16,8 @@ import DetailsFoods from './pages/DetailsFoods';
 import DetailsDrinks from './pages/DetailsDrinks';
 import './App.css';
 import NotFound from './pages/NotFound';
-import InProgress from './pages/InProgress';
+import InProgressFood from './pages/InProgressFood';
+import InProgressDrinks from './pages/InProgressDrinks';
 // import rockGlass from './images/rockGlass.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -35,8 +36,8 @@ function App() {
       <Route exact path="/explore/drinks/ingredients" component={ DrinksIngredients } />
       <Route exact path="/explore/foods/nationalities" component={ FoodsNationalities } />
       <Route exact path="/profile" component={ Profile } />
-      <Route exact path="foods/:id/in-progress" component={ InProgress } />
-      <Route exact path="drinks/:id/in-progress" component={ InProgress } />
+      <Route exact path="foods/:id/in-progress" component={ InProgressFood } />
+      <Route exact path="drinks/:id/in-progress" component={ InProgressDrinks } />
       <Route exact path="/done-recipes" component={ DoneRecipes } />
       <Route exact path="/favorite-recipes" component={ Favorites } />
       <Route path="*" component={ NotFound } />

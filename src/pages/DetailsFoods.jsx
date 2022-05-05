@@ -145,13 +145,13 @@ function DetailsFoods() {
         data-testid="recipe-category"
       >
         { receipe.strCategory }
-        { receipe?.strAlcoholic }
+        { receipe.strAlcoholic }
       </h3>
       { ingredients }
       <h3
         data-testid="instructions"
       >
-        {receipe.strInstructions}
+        { receipe.strInstructions }
       </h3>
       <iframe
         width="560"
