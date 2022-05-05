@@ -30,7 +30,7 @@ function DetailsFoods() {
     searchFood('lookup', 'i', id)
       .then(({ meals }) => setReceipe(meals[0]));
     searchDrink('search', 's', '')
-      .then(({ drinks }) => setRecommendations(drinks.filter((_el, i) => i < SIX)));
+      .then(({ drinks }) => setRecommendations(drinks.slice(0, SIX)));
   }
 
   const checkFavoriteRecipe = (id) => {

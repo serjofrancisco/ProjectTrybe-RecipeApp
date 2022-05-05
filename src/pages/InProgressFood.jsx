@@ -1,59 +1,59 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import { searchFood } from '../services/TheMealDBApi';
+import { toggleFood } from '../helpers/favoriteToggle';
 
 export default function InProgressFood() {
   const { params } = useRouteMatch();
 
   const [recipe, setRecipe] = useState([]);
   const [favorite, setFavorite] = useState();
+  const [progress, setProgress] = useState([]);
 
   function fillRecipe(id) {
-    searchFood('lookup', 'i', id)
-      .then(({ meals }) => setRecipe(meals[0]));
+    searchFood('lookup', 'i', id).then(({ meals }) => setRecipe(meals[0]));
   }
 
-  function favoriteRecipe(id) {
+  const toggleFavorite = () => {
+    toggleFood(params.id, recipe, favorite);
+    setFavorite((prevState) => !prevState);
+  };
+
+  function checkFavoriteRecipe(id) {
     const favRecipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
-    const isFav = favRecipes?.some((fav) => fav.id === id);
+    const isFav = favRecipes?.some((rec) => rec.id === id);
     setFavorite(isFav);
   }
 
-  const toggleFavorite = (id) => {
-    const favRecipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
-    if (favorite) {
-      const newFavs = favRecipes.filter((fav) => fav.id !== id);
-      localStorage.setItem('favoriteRecipes', JSON.stringify(newFavs));
-    } else {
-      const newFavs = [...favRecipes, {
-        id,
-        type: 'drink',
-        nationality: receipe.strArea,
-        category: receipe.strCategory,
-        alcoholicOrNot: receipe.strAlcoholic,
-        name: receipe.strDrink,
-        image: receipe.strDrinkThumb,
-      }];
-      localStorage.setItem('favoriteRecipes', JSON.stringify(newFavs));
-    }
-    setFavorite((prevState) => !prevState);
-  };
+  function fillProgress(id) {
+    const inProgress = localStorage.getItem('inProgressRecipes')
+      ? JSON.parse(localStorage.getItem('inProgressRecipes'))
+      : { meals: { [id]: [] } };
+
+    if (!inProgress.meals) { inProgress.meals = { [id]: [] }; }
+    setProgress(inProgress.meals[id]);
+    localStorage.setItem('inProgressRecipes', JSON.stringify(inProgress));
+  }
 
   useEffect(() => {
     fillRecipe(params.id);
     checkFavoriteRecipe(params.id);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    fillProgress(params.id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  function checkFavoriteRecipe() {
-    const favRecipes = localStorage.getItem('favoriteRecipes');
-    const newFavs = [...favRecipes, recipe]
+  function toggleProgress({ target: { checked, name, parentNode } }) {
+    const inProgress = JSON.parse(localStorage.getItem('inProgressRecipes'));
+    parentNode.classList.toggle('done');
+    setProgress((prevState) => (
+      checked ? [...prevState, name] : prevState.filter((prog) => prog !== name)
+    ));
+    inProgress.meals[params.id] = progress;
+    localStorage.setItem('inProgressRecipes', JSON.stringify(inProgress));
   }
 
   const ingredients = Object.keys(recipe)
-    .filter((key) => (
-      recipe[key] && key.includes('strIngredient')
-    ))
+    .filter((key) => recipe[key] && key.includes('strIngredient'))
     .map((ingredientKey, index) => {
       const measureKey = `strMeasure${index + 1}`;
       return (
@@ -63,11 +63,10 @@ export default function InProgressFood() {
         >
           <input
             type="checkbox"
-            checked={ }
+            name={ index }
+            onChange={ toggleProgress }
           />
-          <span>
-            { `${recipe[ingredientKey]} ${recipe[measureKey]}` }
-          </span>
+          <span>{`${recipe[ingredientKey]} ${recipe[measureKey]}`}</span>
         </div>);
     });
   return (
@@ -88,13 +87,13 @@ export default function InProgressFood() {
       <button
         type="button"
         data-testid="favorite-btn"
-        onClick={ () => setFavorite((prevState) => !prevState) }
+        onClick={ toggleFavorite }
       >
         oi
       </button>
-      <p data-testid="recipe-category">{ recipe.strCategory }</p>
-      { ingredients }
-      <p data-testid="instructions">{ recipe.strInstructions }</p>
+      <p data-testid="recipe-category">{recipe.strCategory}</p>
+      {ingredients}
+      <p data-testid="instructions">{recipe.strInstructions}</p>
       <button
         type="button"
         data-testid="finish-recipe-btn"

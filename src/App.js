@@ -36,8 +36,8 @@ function App() {
       <Route exact path="/explore/drinks/ingredients" component={ DrinksIngredients } />
       <Route exact path="/explore/foods/nationalities" component={ FoodsNationalities } />
       <Route exact path="/profile" component={ Profile } />
-      <Route exact path="foods/:id/in-progress" component={ InProgressFood } />
-      <Route exact path="drinks/:id/in-progress" component={ InProgressDrinks } />
+      <Route exact path="/foods/:id/in-progress" component={ InProgressFood } />
+      <Route exact path="/drinks/:id/in-progress" component={ InProgressDrinks } />
       <Route exact path="/done-recipes" component={ DoneRecipes } />
       <Route exact path="/favorite-recipes" component={ Favorites } />
       <Route path="*" component={ NotFound } />
