@@ -135,8 +135,7 @@ function DetailsDrinks() {
       >
         <img
           alt="favorite"
-          src={ (favorite)
-            ? blackHeartIcon : whiteHeartIcon }
+          src={ (favorite) ? blackHeartIcon : whiteHeartIcon }
           data-testid="favorite-btn"
         />
       </button>

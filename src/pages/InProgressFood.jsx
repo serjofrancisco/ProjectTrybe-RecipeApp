@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useRouteMatch } from 'react-router-dom';
+import { useRouteMatch, useHistory } from 'react-router-dom';
 import { searchFood } from '../services/TheMealDBApi';
 import { toggleFood } from '../helpers/favoriteToggle';
+import whiteHeartIcon from '../images/whiteHeartIcon.svg';
+import blackHeartIcon from '../images/blackHeartIcon.svg';
+import shareIcon from '../images/shareIcon.svg';
 
 export default function InProgressFood() {
   const { params } = useRouteMatch();
   const [recipe, setRecipe] = useState([]);
-  const [favorite, setFavorite] = useState();
+  const [favorite, setFavorite] = useState([]);
   const [progress, setProgress] = useState([]);
+  const [copied, setCopied] = useState(false);
+  // const [canFinish, setCanFinish] = useState();
 
   function fillRecipe(id) {
     searchFood('lookup', 'i', id).then(({ meals }) => setRecipe(meals[0]));
@@ -41,9 +46,8 @@ export default function InProgressFood() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  function toggleProgress({ target: { checked, name, parentNode } }) {
+  function toggleProgress({ target: { checked, name } }) {
     const inProgress = JSON.parse(localStorage.getItem('inProgressRecipes'));
-    parentNode.classList.toggle('done');
     if (checked) {
       setProgress((prevState) => [...prevState, name]);
       inProgress.meals[params.id] = [...progress, name];
@@ -52,12 +56,14 @@ export default function InProgressFood() {
       setProgress(newFav);
       inProgress.meals[params.id] = newFav;
     }
-    // setProgress((prevState) => (
-    //   checked
-    //     ? [...prevState, name] : prevState.filter((prog) => Number(prog) !== Number(name))
-    // ));
     localStorage.setItem('inProgressRecipes', JSON.stringify(inProgress));
   }
+
+  const shareRecipe = () => {
+    setCopied(true);
+    const link = `http://localhost:3000/foods/${params.id}`;
+    navigator.clipboard.writeText(link);
+  };
 
   const ingredients = Object.keys(recipe)
     .filter((key) => recipe[key] && key.includes('strIngredient'))
@@ -67,16 +73,19 @@ export default function InProgressFood() {
         <div
           data-testid={ `${index}-ingredient-step` }
           key={ index }
+          className={ progress?.some((el) => Number(el) === index) ? 'done' : '' }
         >
           <input
             type="checkbox"
             name={ index }
             onChange={ toggleProgress }
-            checked={ progress.some((el) => Number(el) === Number(index)) }
+            checked={ progress?.some((el) => Number(el) === index) }
           />
           <span>{`  ${recipe[ingredientKey]} ${recipe[measureKey]}`}</span>
         </div>);
     });
+
+  const history = useHistory();
   return (
     <div>
       <img
@@ -84,20 +93,27 @@ export default function InProgressFood() {
         data-testid="recipe-photo"
         alt={ `receita ${recipe.strMeal}` }
       />
-      <h1 data-testid="recipe-title">oi</h1>
+      <h1 data-testid="recipe-title">{ recipe.strMeal }</h1>
       <button
         type="button"
-        data-testid="share-btn"
+        onClick={ shareRecipe }
       >
-        oi
+        <img
+          data-testid="share-btn"
+          src={ shareIcon }
+          alt="share"
+        />
       </button>
-
+      {(copied) && (<span>Link copied!</span>)}
       <button
         type="button"
-        data-testid="favorite-btn"
         onClick={ toggleFavorite }
       >
-        oi
+        <img
+          alt="favorite"
+          src={ (favorite) ? blackHeartIcon : whiteHeartIcon }
+          data-testid="favorite-btn"
+        />
       </button>
       <p data-testid="recipe-category">{recipe.strCategory}</p>
       {ingredients}
@@ -105,8 +121,10 @@ export default function InProgressFood() {
       <button
         type="button"
         data-testid="finish-recipe-btn"
+        disabled={ progress?.length < ingredients?.length }
+        onClick={ () => history.push('/done-recipes') }
       >
-        oi
+        Finish
       </button>
     </div>
   );
