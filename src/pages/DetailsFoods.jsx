@@ -30,7 +30,7 @@ function DetailsFoods() {
     searchFood('lookup', 'i', id)
       .then(({ meals }) => setReceipe(meals[0]));
     searchDrink('search', 's', '')
-      .then(({ drinks }) => setRecommendations(drinks.filter((_el, i) => i < SIX)));
+      .then(({ drinks }) => setRecommendations(drinks.slice(0, SIX)));
   }
 
   const checkFavoriteRecipe = (id) => {
@@ -136,8 +136,7 @@ function DetailsFoods() {
       >
         <img
           alt="favorite"
-          src={ (favorite)
-            ? blackHeartIcon : whiteHeartIcon }
+          src={ (favorite) ? blackHeartIcon : whiteHeartIcon }
           data-testid="favorite-btn"
         />
       </button>
@@ -145,13 +144,13 @@ function DetailsFoods() {
         data-testid="recipe-category"
       >
         { receipe.strCategory }
-        { receipe?.strAlcoholic }
+        { receipe.strAlcoholic }
       </h3>
       { ingredients }
       <h3
         data-testid="instructions"
       >
-        {receipe.strInstructions}
+        { receipe.strInstructions }
       </h3>
       <iframe
         width="560"

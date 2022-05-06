@@ -28,10 +28,9 @@ function DetailsDrinks() {
   });
 
   function fillReceipe(id) {
-    searchDrink('lookup', 'i', id)
-      .then(({ drinks }) => setReceipe(drinks[0]));
+    searchDrink('lookup', 'i', id).then(({ drinks }) => setReceipe(drinks[0]));
     searchFood('search', 's', '')
-      .then(({ meals }) => setRecommendations(meals.filter((_el, i) => i < SIX)));
+      .then(({ meals }) => setRecommendations(meals.slice(0, SIX)));
   }
 
   function updateButton(id) {
@@ -40,7 +39,7 @@ function DetailsDrinks() {
 
     const inProgressRecipes = JSON.parse(localStorage.getItem('inProgressRecipes'));
     let isInProgress = false;
-    if (inProgressRecipes) {
+    if (inProgressRecipes && inProgressRecipes.cocktails) {
       isInProgress = Object.keys(inProgressRecipes.cocktails)
         .some((idDrink) => idDrink === id);
     }
@@ -132,12 +131,11 @@ function DetailsDrinks() {
       {(copied) && (<span>Link copied!</span>)}
       <button
         type="button"
-        onClick={ () => toggleFavorite() }
+        onClick={ toggleFavorite }
       >
         <img
           alt="favorite"
-          src={ (favorite)
-            ? blackHeartIcon : whiteHeartIcon }
+          src={ (favorite) ? blackHeartIcon : whiteHeartIcon }
           data-testid="favorite-btn"
         />
       </button>
