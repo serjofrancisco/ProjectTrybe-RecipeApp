@@ -12,7 +12,6 @@ export default function InProgressFood() {
   const [favorite, setFavorite] = useState([]);
   const [progress, setProgress] = useState([]);
   const [copied, setCopied] = useState(false);
-  // const [canFinish, setCanFinish] = useState();
 
   function fillRecipe(id) {
     searchFood('lookup', 'i', id).then(({ meals }) => setRecipe(meals[0]));
