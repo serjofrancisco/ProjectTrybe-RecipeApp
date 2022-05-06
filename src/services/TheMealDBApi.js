@@ -1,7 +1,6 @@
 const CATEGORIAS_BASE_API = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
 const NACIONALIDADES_BASE_API = 'https://www.themealdb.com/api/json/v1/1/list.php?a=list';
 const INGREDIENTES_BASE_API = 'https://www.themealdb.com/api/json/v1/1/list.php?i=list';
-
 const SURPRISEFOOD = 'https://www.themealdb.com/api/json/v1/1/random.php';
 
 export const getFoodCategory = async () => {
@@ -44,6 +43,18 @@ export const filterFoodByCategory = async (category) => {
 
 export const getSurpriseFood = async () => {
   const response = await fetch(SURPRISEFOOD);
+  const json = await response.json();
+  return response.ok ? Promise.resolve(json) : Promise.reject(json);
+};
+
+export const getFilterIngredients = async (name) => {
+  const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${name}`);
+  const json = await response.json();
+  return response.ok ? Promise.resolve(json) : Promise.reject(json);
+};
+
+export const getFilterNationalities = async (name) => {
+  const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${name}`);
   const json = await response.json();
   return response.ok ? Promise.resolve(json) : Promise.reject(json);
 };
