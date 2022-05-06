@@ -53,6 +53,11 @@ export const getFilterIngredients = async (name) => {
   return response.ok ? Promise.resolve(json) : Promise.reject(json);
 };
 
+export const getFilterNationalities = async (name) => {
+  const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${name}`);
+  const json = await response.json();
+  return response.ok ? Promise.resolve(json) : Promise.reject(json);
+};
 // const FOTOS_INGREDIENTES_BASE_API = `https://www.themealdb.com/images/ingredients/${teste1.meals.strIngredient1}-Small.png`;
 
 // export const getPhotographIngredients = async () => {
