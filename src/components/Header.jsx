@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import profileIcon from '../images/profileIcon.svg';
-import searchIcon from '../images/searchIcon.svg';
+import { FaUserCircle } from 'react-icons/fa';
+import { CgSearchLoading } from 'react-icons/cg';
+// import profileIcon from '../images/profileIcon.svg';
+// import searchIcon from '../images/searchIcon.svg';
 import SearchForm from './SearchForm';
+import '../styles/Header.css';
 // import Profile from '../pages/Profile';
 
 export default function Header({ title, existeButton }) {
@@ -11,15 +14,23 @@ export default function Header({ title, existeButton }) {
 
   return (
     <header className="header">
+
       <Link to="/profile">
         <button
+          className="header_btn"
           type="button"
         >
-          <img
+          <FaUserCircle
+            size={ 40 }
+            // data-testid="profile-top-btn"
+            className="header_btn"
+          />
+          {/* <img
             src={ profileIcon }
             alt="profile"
             data-testid="profile-top-btn"
-          />
+            className="header_btn
+          /> */}
         </button>
       </Link>
       <h1
@@ -29,14 +40,21 @@ export default function Header({ title, existeButton }) {
       </h1>
       {(existeButton) && (
         <button
+          className="header_btn"
           type="button"
           onClick={ () => setSearch((prevState) => !prevState) }
         >
-          <img
+          <CgSearchLoading
+            size={ 40 }
+            // data-testid="profile-top-btn"
+            className="header_btn"
+          />
+          {/* <img
             src={ searchIcon }
             alt="search"
             data-testid="search-top-btn"
-          />
+            className="header_btn"
+          /> */}
         </button>)}
       {(search) && (
         <SearchForm page={ title } />

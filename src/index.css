@@ -1,4 +1,37 @@
+@font-face {
+  font-family: FontsTitles;
+  src:  url('./fonts/RaspoutineDemiBold_TB.otf') format('otf'),
+}
+
+:root {
+  --color-main: #fffcf5;
+  --color-sec: rgb(255, 234, 167);
+  --color-sec_opc: rgba(255, 234, 167, 0.363);
+  --color-third: #f7c520;
+  --color-forth: #362a00;
+  --color-accent: #2F4AF8;
+  --color-text: rgb(49, 38, 0);
+}
+
+::selection {
+  background: var(--color-sec);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  background-color: var(--color-main);
+}
+
+
+
+
+
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +43,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */

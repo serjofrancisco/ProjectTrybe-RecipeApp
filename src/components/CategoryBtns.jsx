@@ -7,6 +7,7 @@ import { getFoodCategory,
 import { getDrinksCategory,
   filterDrinkByCategory,
   searchDrink } from '../services/TheCockTailDBAPI';
+import '../styles/Navbar.css';
 
 export default function CategoryBtns({ page }) {
   const [categories, setCategories] = useState([]);
@@ -57,11 +58,12 @@ export default function CategoryBtns({ page }) {
 
   const cinco = 5;
   return (
-    <div>
+    <div className="navBtns_container">
       <button
         type="button"
         data-testid="All-category-filter"
         onClick={ handleClickAll }
+        className="navBtns"
       >
         All
       </button>
@@ -73,6 +75,7 @@ export default function CategoryBtns({ page }) {
             data-testid={ `${element.strCategory}-category-filter` }
             value={ element.strCategory }
             onClick={ handleClick }
+            className="navBtns"
           >
             { element.strCategory }
           </button>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import { useHistory } from 'react-router-dom';
+import '../styles/Login.css';
 
 export default function Login() {
   const [userEmail, setUserEmail] = useState('');
@@ -27,33 +28,52 @@ export default function Login() {
   };
 
   return (
-    <form onSubmit={ handleSubmit }>
-      <label htmlFor="userEmail">
-        <input
-          type="email"
-          id="userEmail"
-          data-testid="email-input"
-          value={ userEmail }
-          onChange={ ({ target: { value } }) => setUserEmail(value) }
-        />
-      </label>
-      <label htmlFor="pass">
-        <input
-          type="password"
-          id="pass"
-          data-testid="password-input"
-          value={ password }
-          onChange={ ({ target: { value } }) => setPassword(value) }
-        />
-      </label>
+    <form
+      className="login_container"
+      onSubmit={ handleSubmit }
+    >
+      <section
+        className="login_container_titles"
+      >
+        <h1>Recipes App</h1>
+        <h3>Login</h3>
+      </section>
+      <section className="login_container_inputs">
+        <label htmlFor="userEmail">
+          <input
+            className="login_input"
+            placeholder="Type your email"
+            type="email"
+            id="userEmail"
+            data-testid="email-input"
+            value={ userEmail }
+            onChange={ ({ target: { value } }) => setUserEmail(value) }
+          />
+        </label>
+        <label htmlFor="pass">
+          <input
+            className="login_input"
+            placeholder="Type your password"
+            type="password"
+            id="pass"
+            data-testid="password-input"
+            value={ password }
+            onChange={ ({ target: { value } }) => setPassword(value) }
+          />
+        </label>
+      </section>
       <Button
-        variant="success"
+        // variant="success"
+        // size="lg"
+        // active
+        className="login_btn"
         type="submit"
         data-testid="login-submit-btn"
         disabled={ cantSubmit }
       >
         Enter
       </Button>
+
     </form>
   );
 }

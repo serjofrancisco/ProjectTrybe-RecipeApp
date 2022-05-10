@@ -7,6 +7,8 @@ import CardFood from '../components/CardFood';
 import { searchFood } from '../services/TheMealDBApi';
 import CategoryBtns from '../components/CategoryBtns';
 
+import '../styles/Foods.css';
+
 function Foods() {
   const { data, setData } = useContext(MyContext);
   const doze = 12;
@@ -27,14 +29,19 @@ function Foods() {
     <div>
       <Header title="Foods" existeButton="true" />
       <CategoryBtns page="foods" />
-      {
-        data.searchResult.map((element, i) => (
-          (i < doze) && (
-            <CardFood element={ element } i={ i } key={ element.idMeal } />
-          )
-        ))
-      }
-
+      <div className="food_container">
+        {
+          data.searchResult.map((element, i) => (
+            (i < doze) && (
+              <CardFood
+                element={ element }
+                i={ i }
+                key={ element.idMeal }
+              />
+            )
+          ))
+        }
+      </div>
       <Footer existeFooter="true" />
     </div>
   );
