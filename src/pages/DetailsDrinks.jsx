@@ -1,14 +1,13 @@
 import React, { useEffect, useContext, useState } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
-import './Details.css';
 import { useRouteMatch, Link } from 'react-router-dom';
 import MyContext from '../contexts/MyContext';
 import { searchFood } from '../services/TheMealDBApi';
 import { searchDrink } from '../services/TheCockTailDBAPI';
 import { toggleDrink } from '../helpers/favoriteToggle';
-import whiteHeartIcon from '../images/whiteHeartIcon.svg';
-import blackHeartIcon from '../images/blackHeartIcon.svg';
+// import whiteHeartIcon from '../images/whiteHeartIcon.svg';
+// import blackHeartIcon from '../images/blackHeartIcon.svg';
 
 function DetailsDrinks() {
   const { params } = useRouteMatch();

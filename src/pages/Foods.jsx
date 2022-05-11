@@ -7,8 +7,6 @@ import CardFood from '../components/CardFood';
 import { searchFood } from '../services/TheMealDBApi';
 import CategoryBtns from '../components/CategoryBtns';
 
-import '../styles/Foods.css';
-
 function Foods() {
   const { data, setData } = useContext(MyContext);
   const doze = 12;

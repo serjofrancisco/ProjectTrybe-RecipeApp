@@ -4,13 +4,14 @@
 }
 
 :root {
-  --color-main: #fffcf5;
+  --color-main: rgb(255,252,245);
   --color-sec: rgb(255, 234, 167);
   --color-sec_opc: rgba(255, 234, 167, 0.363);
-  --color-third: #f7c520;
-  --color-forth: #362a00;
-  --color-accent: #2F4AF8;
+  --color-third: rgb(247,197,32);
+  --color-forth: rgb(54,42,0);
+  --color-accent: rgb(47,74,248);
   --color-text: rgb(49, 38, 0);
+  --color-text-sec: rgba(49, 38, 0, 0.507);
 }
 
 ::selection {

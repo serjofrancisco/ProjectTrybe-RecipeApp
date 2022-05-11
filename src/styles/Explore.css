@@ -8,6 +8,7 @@
 }
 
 .explore_container {
+
   /* border: 1px solid rgb(0, 255, 42); */
   background-color: var(--color-sec);
   height: 100vh;
@@ -29,7 +30,6 @@
 .explore_card {
   align-items: center;
   background-color: var(--color-third);
-
   background-image: '../images/Chef_640x360.jpg';
   border: 1px solid var(--color-main);
   border-radius: 12px;

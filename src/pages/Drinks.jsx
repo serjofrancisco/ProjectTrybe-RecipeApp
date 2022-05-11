@@ -23,7 +23,7 @@ function Drinks() {
   }, []);
 
   return (
-    <div>
+    <div className="main_container">
       <Header title="Drinks" existeButton="true" />
       <CategoryBtns page="drinks" />
       {
