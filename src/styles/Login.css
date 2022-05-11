@@ -13,6 +13,8 @@
   align-items: center;
   background-color: var(--color-sec);
   background-image: url('../images/Chef_640x360.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   height: 640px;

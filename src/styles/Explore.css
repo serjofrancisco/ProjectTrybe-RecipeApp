@@ -7,31 +7,56 @@
   src: url('../fonts/RaspoutineDemiBold_TB.otf');
 }
 
-
-button {
-  color: var(--color-forth);
-  font-family: FontsTitles , sans-serif;
-  padding: 8px 4px 0;
-}
-
-img {
-  border-radius: 0 0 8px 8px;
-  max-height: 199px;
-  max-width: 100%;
-}
-
 .explore_container {
-  align-items: center;
+  /* border: 1px solid rgb(0, 255, 42); */
   background-color: var(--color-sec);
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  height: 500px;
-  justify-content: center;
+  height: 100vh;
 }
 
 .explore_card_container {
+  align-items: center;
+  background-color: var(--color-main);
+
+  /* border: 1px solid rgb(0, 238, 255); */
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
+  height: 76vh;
+  justify-content: center;
+  margin: 0 12px;
+}
+
+.explore_card {
+  align-items: center;
+  background-color: var(--color-third);
+
+  background-image: '../images/Chef_640x360.jpg';
+  border: 1px solid var(--color-main);
+  border-radius: 12px;
+  box-shadow: 12px 14px 8px -5px rgba(30, 30, 60, 0.2);
+  display: flex;
+  flex-direction: column;
+  font-family: FontsTitles , sans-serif;
+  margin-bottom: 24px;
+  width: 84vw;
+}
+
+.explore_card:hover {
+  transform: translateY(-12px);
+}
+
+.explore_card:active {
+  transform: translateY(4px);
+}
+
+.explore_card_img {
+  border-radius: 12px 12px 0 0;
+  max-height: 199px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.header {
+  margin-bottom: 20px;
 }
 

@@ -16,8 +16,14 @@ export default function CardFood({ element, i }) {
         className="foods_card"
         data-testid={ `${i}-recipe-card` }
       >
-        <h6 data-testid={ `${i}-card-name` }>{strMeal}</h6>
+        <p
+          className="foods_card_title"
+          data-testid={ `${i}-card-name` }
+        >
+          {strMeal}
+        </p>
         <img
+          className="foods_card_img"
           src={ strMealThumb }
           alt="search"
           data-testid={ `${i}-card-img` }
