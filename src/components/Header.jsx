@@ -22,7 +22,6 @@ export default function Header({ title, existeButton }) {
         >
           <FaUserCircle
             size={ 40 }
-            // data-testid="profile-top-btn"
             className="header_btn"
           />
           {/* <img
@@ -46,7 +45,6 @@ export default function Header({ title, existeButton }) {
         >
           <CgSearchLoading
             size={ 40 }
-            // data-testid="profile-top-btn"
             className="header_btn"
           />
           {/* <img

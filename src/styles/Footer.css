@@ -26,7 +26,6 @@
 .footer_btn:hover {
   background-color: var(--color-accent);
   color: var(--color-main);
-  cursor: pointer;
   padding: 4px;
 }
 

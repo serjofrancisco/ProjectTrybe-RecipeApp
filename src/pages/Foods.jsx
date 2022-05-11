@@ -26,7 +26,7 @@ function Foods() {
   }, []);
 
   return (
-    <div>
+    <div className="main_container">
       <Header title="Foods" existeButton="true" />
       <CategoryBtns page="foods" />
       <div className="food_container">

@@ -14,7 +14,7 @@
 }
 
 ::selection {
-  background: var(--color-sec);
+  background: var(--color-third);
 }
 
 * {
@@ -23,10 +23,13 @@
   padding: 0;
 }
 
-body {
-  background-color: var(--color-main);
+a {
+  cursor: pointer;
 }
 
+button {
+  cursor: pointer;
+}
 
 
 

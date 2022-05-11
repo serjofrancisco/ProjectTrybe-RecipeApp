@@ -58,7 +58,7 @@ export default function CategoryBtns({ page }) {
 
   const cinco = 5;
   return (
-    <div className="navBtns_container">
+    <div className="navBar">
       <button
         type="button"
         data-testid="All-category-filter"

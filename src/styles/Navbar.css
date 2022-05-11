@@ -15,38 +15,31 @@ h1 {
   padding-top: 8px;
 }
 
-.navBtns_container {
+.navBar {
   align-items: center;
-  background-color: var(--color-main);
+  background-color: var(--color-third);
   display: flex;
-
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   justify-content: center;
 }
 
 .navBtns {
   align-items: center;
-  background-color: var(--color-sec);
-
-  /* border-radius: 4px; */
+  background-color: var(--color-third);
   border-style: none;
-  cursor: pointer;
   display: flex;
-  flex-grow: 1;
+  flex-grow: 4;
   font-family: FontsTitles , sans-serif;
   height: 32px;
   justify-content: center;
-
-  /* margin: 8px 4px; */
+  max-width: 50%;
+  min-width: 35%;
   padding: 4px;
-
-  /* width: 50%; */
 }
 
 .navBtns:hover {
   background-color: var(--color-accent);
   color: var(--color-main);
-  cursor: pointer;
 }
 
 .navBtns:active {

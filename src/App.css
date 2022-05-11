@@ -4,11 +4,12 @@
 } */
 
 /* border: 1px solid red; */
-.profile-btns-container {
+
+/* .profile-btns-container {
   align-items: center;
   display: flex;
   flex-direction: column;
-}
+} */
 
 .meals {
   align-items: center;

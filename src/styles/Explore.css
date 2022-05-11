@@ -1,0 +1,37 @@
+/* border: 1px solid red; */
+
+/* background-color: red; */
+
+@font-face {
+  font-family: FontsTitles;
+  src: url('../fonts/RaspoutineDemiBold_TB.otf');
+}
+
+
+button {
+  color: var(--color-forth);
+  font-family: FontsTitles , sans-serif;
+  padding: 8px 4px 0;
+}
+
+img {
+  border-radius: 0 0 8px 8px;
+  max-height: 199px;
+  max-width: 100%;
+}
+
+.explore_container {
+  align-items: center;
+  background-color: var(--color-sec);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  justify-content: center;
+}
+
+.explore_card_container {
+  display: flex;
+  flex-direction: column;
+}
+
