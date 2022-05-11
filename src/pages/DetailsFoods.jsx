@@ -20,6 +20,7 @@ function DetailsFoods() {
     recommendations,
     setRecommendations,
   } = useContext(MyContext);
+
   const [copied, setCopied] = useState(false);
   const [favorite, setFavorite] = useState();
   const SIX = 6;
@@ -137,15 +138,17 @@ function DetailsFoods() {
             data-testid="share-btn"
             onClick={ shareRecipe }
           >
-            <FiShare2
-              size={ 30 }
-              className="details_icon"
-            />
+            { copied
+              ? (
+                'Link copied!'
+              )
+              : (
+                <FiShare2
+                  size={ 30 }
+                  className="details_icon"
+                />
+              )}
           </button>
-          {
-            (copied)
-          // && (<span>Link copied!</span>)
-          }
           <button
             className="details_btn"
             type="button"
@@ -180,14 +183,12 @@ function DetailsFoods() {
           { receipe.strCategory }
           { receipe.strAlcoholic }
         </div>
-
       </div>
       <div className="details_ingredients_container">
         <h5>
           Ingredients:
         </h5>
         { ingredients }
-
       </div>
       <div
         className="details_instructions"

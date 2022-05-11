@@ -5,14 +5,28 @@ import { Link } from 'react-router-dom';
 export default function CardDrink({ element, i }) {
   const { strDrink, strDrinkThumb, idDrink } = element;
   return (
-    <Link to={ `/drinks/${idDrink}` }>
-      <div data-testid={ `${i}-recipe-card` }>
+    <Link
+      to={ `/drinks/${idDrink}` }
+      className="card_container"
+      style={ { textDecoration: 'none' } }
+    >
+      <div
+        data-testid={ `${i}-recipe-card` }
+        className="card_main"
+      >
+        <p
+          data-testid={ `${i}-card-name` }
+          className="card_title"
+        >
+          {strDrink}
+
+        </p>
         <img
+          className="card_img"
           src={ strDrinkThumb }
           alt="search"
           data-testid={ `${i}-card-img` }
         />
-        <p data-testid={ `${i}-card-name` }>{strDrink}</p>
       </div>
     </Link>
   );

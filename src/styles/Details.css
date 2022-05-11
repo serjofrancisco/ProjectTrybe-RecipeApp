@@ -1,6 +1,6 @@
-/* border: 1px solid red; */
-
-/* background-color: red; */
+/* . {
+  background-color: rgb(139, 127, 13);
+} */
 
 /* . {
   border: 1px solid red;
@@ -26,8 +26,6 @@
 }
 
 .details_container {
-
-  /* border: 1px solid rgb(0, 255, 42); */
   background-color: var(--color-third);
 }
 
@@ -35,13 +33,11 @@
   background-color: var(--color-third);
   display: flex;
   font-family: FontsTitles , sans-serif;
-  justify-content: space-around;
-  padding: 4px 0 0;
+  justify-content: space-evenly;
+  padding: 8px 12px 0;
 }
 
 .details_category {
-
-  /* border: 3px solid rgb(41, 3, 255); */
   background-color: var(--color-third);
   color: var(--color-text-sec);
   font-family: FontsTitles , sans-serif;
@@ -50,22 +46,16 @@
 }
 
 .details_img {
-
-  /* border: 3px solid rgb(41, 3, 255); */
   max-height: 360px;
   width: 100vw;
 }
 
 .details_title {
-
-  /* border: 1px solid rgb(0, 217, 255); */
   font-size: 20px;
   width: 250px;
 }
 
 .details_btn {
-
-  /* border: 1px solid red; */
   background-color: rgba(255, 196, 0, 0);
   border-style: none;
 }
@@ -80,8 +70,6 @@
 }
 
 .details_icon {
-
-  /* border: 1px solid red; */
   background-color: rgba(255, 196, 0, 0);
 }
 
@@ -91,46 +79,30 @@
 
 .details_extra {
   background-color: var(--color-main);
-
-  /* border: 3px solid rgb(255, 0, 242); */
   border-radius: 16px 16px 0 0;
-
-  /* margin: 20px 0; */
-
-  /* padding: 18px 0; */
 }
 
 .details_ingredients_container {
   background-color: var(--color-main);
-
-  /* border: 1px solid rgb(255, 0, 242); */
   border-radius: 16px 16px 0 0;
   padding: 8px 12px;
 }
 
 .details_instructions {
   background-color: var(--color-main);
-
-  /* border: 1px solid rgb(255, 0, 242); */
   border-radius: 0;
   padding: 8px 12px;
 }
 
 .details_recommendation_container {
-
-  /* border: 1px solid rgb(255, 0, 242); */
   margin-bottom: 32px;
 }
 
 .details_recommendation_title {
   background-color: var(--color-sec);
   font-family: FontsTitles , sans-serif;
+  font-size: 20px;
 }
-
-/* .details_start_recipe_container {
-  bottom: 0;
-  position: fixed;
-} */
 
 .details_start_recipe_btn {
   background-color: var(--color-accent);
