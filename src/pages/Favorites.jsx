@@ -28,10 +28,11 @@ function Favorites() {
   }, []);
 
   return (
-    <div>
+    <div className="profile_done_favs_main_container">
       <Header title="Favorite Recipes" />
-      <nav>
+      <nav className="favorite_btns_container">
         <button
+          className="favorite_btns"
           data-testid="filter-by-all-btn"
           type="button"
           onClick={ handleDone }
@@ -39,6 +40,7 @@ function Favorites() {
           All
         </button>
         <button
+          className="favorite_btns"
           data-testid="filter-by-food-btn"
           type="button"
           onClick={ filterFood }
@@ -46,6 +48,7 @@ function Favorites() {
           Foods
         </button>
         <button
+          className="favorite_btns"
           data-testid="filter-by-drink-btn"
           type="button"
           onClick={ filterDrink }

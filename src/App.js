@@ -18,6 +18,7 @@ import './App.css';
 import './styles/Drinks_Foods.css';
 import './styles/Explore.css';
 import './styles/Details.css';
+import './styles/Profile_Done_Favs.css';
 import NotFound from './pages/NotFound';
 import InProgressFood from './pages/InProgressFood';
 import InProgressDrinks from './pages/InProgressDrinks';

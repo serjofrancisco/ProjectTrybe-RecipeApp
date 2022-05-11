@@ -4,13 +4,12 @@ import { Carousel } from 'react-responsive-carousel';
 import { useRouteMatch, Link } from 'react-router-dom';
 import { MdFavorite, MdOutlineFavoriteBorder } from 'react-icons/md';
 import { FiShare2 } from 'react-icons/fi';
-
 import MyContext from '../contexts/MyContext';
 import { searchFood } from '../services/TheMealDBApi';
 import { searchDrink } from '../services/TheCockTailDBAPI';
+import { toggleFood } from '../helpers/favoriteToggle';
 // import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 // import blackHeartIcon from '../images/blackHeartIcon.svg';
-import { toggleFood } from '../helpers/favoriteToggle';
 
 function DetailsFoods() {
   const { params } = useRouteMatch();
@@ -75,7 +74,7 @@ function DetailsFoods() {
     fillReceipe(params.id);
     updateButton(params.id);
     checkFavoriteRecipe(params.id);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const ingredients = Object.keys(receipe)

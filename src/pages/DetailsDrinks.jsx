@@ -108,7 +108,6 @@ function DetailsDrinks() {
       </p>
     </div>
   ));
-
   // const style = {
   //   bottom: '0px',
   //   position: 'fixed',
@@ -129,7 +128,6 @@ function DetailsDrinks() {
           >
             {(receipe.strDrink)}
           </h2>
-
           <button
             className="details_btn"
             type="button"
@@ -212,8 +210,10 @@ function DetailsDrinks() {
         </Carousel>
       </div>
       <div className="details_start_recipe_container">
-        { (buttonStatus.showButton) && (
-          <Link to={ `/drinks/${receipe.idDrink}/in-progress` }>
+        {(buttonStatus.showButton) && (
+          <Link
+            to={ `/drinks/${receipe.idDrink}/in-progress` }
+          >
             <button
               className="details_start_recipe_btn"
               type="button"
@@ -223,7 +223,7 @@ function DetailsDrinks() {
               { (buttonStatus.continueRecipe) ? ('Continue Recipe') : ('Start Recipe') }
             </button>
           </Link>
-        ) }
+        )}
       </div>
     </div>
   );

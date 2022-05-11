@@ -1,0 +1,73 @@
+/* . {
+  background-color: rgb(139, 127, 13);
+} */
+
+/* . {
+  border: 1px solid red;
+} */
+
+@font-face {
+  font-family: FontsTitles;
+  src: url('../fonts/RaspoutineDemiBold_TB.otf');
+}
+
+.profile_done_favs_main_container {
+  background-color: var(--color-sec);
+}
+
+.profile_email {
+  align-items: center;
+  border-radius: 4px;
+  box-shadow: 10px 10px 10px -4px rgba(30, 30, 60, 0.233);
+  color: var(--color-forth);
+  display: flex;
+  font-family: FontsTitles , sans-serif;
+  font-size: 24px;
+  justify-content: center;
+  margin-bottom: 100px;
+  padding: 4px 32px;
+}
+
+.profile_btns_container, .favorite_btns_container, .done_btns_container {
+  align-items: center;
+  background-color: var(--color-main);
+  border-radius: 16px 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  height: 450px;
+  justify-content: center;
+}
+
+.profile_btns, .favorite_btns, .done_btns {
+  background-color: var(--color-third);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px -4px rgba(30, 30, 60, 0.74);
+  color: var(--color-text);
+  font-family: FontsTitles , sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  height: 50px;
+  margin-bottom: 24px;
+  width: 250px;
+}
+
+.profile_btns:active, .favorite_btns:active, .done_btns:active {
+  box-shadow: 4px 4px 4px -4px rgba(30, 30, 60, 0.74);
+  transform: translateY(4px);
+}
+
+.profile_btns:hover, .favorite_btns:hover, .done_btns:hover {
+  background-color: var(--color-accent);
+  color: var(--color-main);
+}
+
+.profile_btn_logout {
+  background-color: var(--color-accent);
+  color: var(--color-main);
+}
+
+.profile_btn_logout:hover {
+  background-color: var(--color-third);
+  color: var(--color-text);
+}

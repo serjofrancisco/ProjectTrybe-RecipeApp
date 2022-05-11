@@ -16,27 +16,39 @@ function Profile() {
     }
   }, []);
   return (
-    <div>
+    <div className="profile_done_favs_main_container">
       <Header title="Profile" />
       <main>
-        <p data-testid="profile-email">
-          {
-            email
-          }
+        <section className="profile_btns_container">
+          <p
+            className="profile_email"
+            data-testid="profile-email"
+          >
+            {
+              email
+            }
 
-        </p>
-        <section className="profile-btns-container">
+          </p>
           <Link to="/done-recipes">
-            <button data-testid="profile-done-btn" type="button">
+            <button
+              className="profile_btns"
+              data-testid="profile-done-btn"
+              type="button"
+            >
               Done Recipes
             </button>
           </Link>
           <Link to="/favorite-recipes">
-            <button data-testid="profile-favorite-btn" type="button">
+            <button
+              className="profile_btns"
+              data-testid="profile-favorite-btn"
+              type="button"
+            >
               Favorite Recipes
             </button>
           </Link>
           <button
+            className="profile_btns profile_btn_logout"
             data-testid="profile-logout-btn"
             onClick={ handleLogout }
             type="button"
