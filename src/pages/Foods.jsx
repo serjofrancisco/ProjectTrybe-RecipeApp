@@ -12,7 +12,7 @@ function Foods() {
   const doze = 12;
 
   const handleFood = async () => {
-    if (!data.searchResult.length) {
+    if (!data.searchResult.length || data.typePage !== 'foods') {
       const { meals } = await searchFood('search', 's', '');
       setData({ searchResult: [...meals], typePage: 'foods' });
     }
