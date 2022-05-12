@@ -5,7 +5,7 @@
   src: url('../fonts/RaspoutineDemiBold_TB.otf');
 }
 
-h3 {
+h4 {
   align-items: center;
   color: var(--color-forth);
   display: flex;

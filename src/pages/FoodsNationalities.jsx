@@ -42,9 +42,10 @@ function FoodsNationalities() {
   }, []);
   const doze = 12;
   return (
-    <div>
+    <div className="nationality_main_container">
       <Header title="Explore Nationalities" existeButton="true" />
       <select
+        className="nationality_select"
         data-testid="explore-by-nationality-dropdown"
         onChange={ handleChangeSearch }
       >
@@ -64,13 +65,15 @@ function FoodsNationalities() {
           </option>
         ))}
       </select>
-      {
-        filterNationalities.map((element, i) => (
-          (i < doze) && (
-            <CardFood element={ element } i={ i } key={ element.idMeal } />
-          )
-        ))
-      }
+      <div className="nationality_card_container">
+        {
+          filterNationalities.map((element, i) => (
+            (i < doze) && (
+              <CardFood element={ element } i={ i } key={ element.idMeal } />
+            )
+          ))
+        }
+      </div>
       <Footer existeFooter="true" />
     </div>
   );

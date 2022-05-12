@@ -18,6 +18,22 @@
   background: var(--color-third);
 }
 
+select option {
+  background-color: var(--color-main);
+  font-family: FontsTitles;
+  font-size: 14px;
+}
+
+option:checked {
+  background-color: var(--color-sec);
+  color: var(--color-text);
+}
+
+option:not(:checked) {
+  background-color: var(--color-main);
+  color: var(--color-text);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

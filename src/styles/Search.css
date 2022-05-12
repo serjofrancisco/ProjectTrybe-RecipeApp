@@ -1,0 +1,98 @@
+/* . {
+  background-color: rgb(139, 127, 13);
+} */
+
+/* . {
+  border: 1px solid red;
+} */
+
+@font-face {
+  font-family: FontsTitles;
+  src: url('../fonts/RaspoutineDemiBold_TB.otf');
+}
+
+.search_main_container {
+  align-items: center;
+  background-color: var(--color-third);
+  border: 1px solid var(--color-third);
+  border-radius: 4px;
+  box-shadow: 16px 12px 4px 4px rgba(30, 30, 60, 0.507);
+  display: flex;
+  flex-flow: row wrap;
+  font-family: FontsTitles , sans-serif;
+  height: 22vh;
+  justify-content: center;
+  left: 12px;
+  letter-spacing: 1px;
+  position: fixed;
+  top: 64px;
+  width: 94vw;
+}
+
+.search_input {
+  align-items: center;
+  border-radius: 4px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 94vw;
+}
+
+.search_input input {
+  background-color: var(--color-main);
+  border-radius: 4px;
+  border-style: none;
+  height: 32px;
+  margin-top: 8px;
+  padding: 8px;
+  width: 96%;
+}
+
+.search_radio_container {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.search_radio {
+  font-size: 14px;
+}
+
+.search_radio input {
+  margin-right: 4px;
+}
+
+.search_input input:focus {
+  border-radius: 4px;
+  border-style: none;
+  height: 32px;
+  outline: 2px solid var(--color-accent);
+  padding: 8px;
+  width: 96%;
+}
+
+.search_btn {
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 8px 8px 4px -4px rgba(30, 30, 60, 0.432);
+  color: var(--color-main);
+  font-family: FontsTitles , sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  height: 50px;
+  margin-bottom: 24px;
+  width: 90%;
+
+}
+
+.search_btn:hover {
+  border: 1px solid var(--color-main);
+  transform: translateY(-2px);
+}
+
+.search_btn:active {
+  transform: translateY(2px);
+}
+

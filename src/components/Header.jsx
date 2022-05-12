@@ -32,11 +32,11 @@ export default function Header({ title, existeButton }) {
           /> */}
         </button>
       </Link>
-      <h3
+      <h4
         data-testid="page-title"
       >
         { title }
-      </h3>
+      </h4>
       {(existeButton) && (
         <button
           className="header_btn"

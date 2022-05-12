@@ -47,68 +47,89 @@ export default function SearchForm({ page }) {
     }
   };
 
-  const style = {
-    position: 'fixed',
-    top: '85px',
-    background: 'gray',
-    left: '0',
-    width: '100%',
-  };
+  // const style = {
+  //   position: 'fixed',
+  //   top: '85px',
+  //   background: 'gray',
+  //   left: '0',
+  //   width: '100%',
+  // };
 
   return (
-    <div style={ style }>
-      <label htmlFor="search">
+    <div
+      className="search_main_container"
+      // style={ style }
+    >
+      <label
+        className="search_input"
+        htmlFor="search"
+      >
         <input
           type="text"
           id="search"
           data-testid="search-input"
+          placeholder="Search for..."
           value={ search }
           onChange={ ({ target: { value } }) => setSearch(value) }
         />
       </label>
-      <span>Busca por...</span>
-      <label htmlFor="ingredients">
-        Ingrediente:
-        <input
-          type="radio"
-          onClick={ handleTypeSearch }
-          id="ingredients"
-          data-testid="ingredient-search-radio"
-          name="search"
-          value="i"
-          className="filter"
-        />
-      </label>
-      <label htmlFor="name">
-        Nome:
-        <input
-          type="radio"
-          id="name"
-          data-testid="name-search-radio"
-          name="search"
-          value="s"
-          className="search"
-          onClick={ handleTypeSearch }
-        />
-      </label>
-      <label htmlFor="first-letter">
-        Primeira Letra:
-        <input
-          type="radio"
-          id="first-letter"
-          data-testid="first-letter-search-radio"
-          name="search"
-          value="f"
-          className="search"
-          onClick={ handleTypeSearch }
-        />
-      </label>
+      {/* <span>Busca por...</span> */}
+      <div
+        className="search_radio_container"
+      >
+        <label
+          className="search_radio"
+          htmlFor="ingredients"
+        >
+          <input
+            type="radio"
+            onClick={ handleTypeSearch }
+            id="ingredients"
+            data-testid="ingredient-search-radio"
+            name="search"
+            value="i"
+            className="filter"
+          />
+          By ingredient
+        </label>
+        <label
+          className="search_radio"
+          htmlFor="name"
+        >
+          <input
+            type="radio"
+            id="name"
+            data-testid="name-search-radio"
+            name="search"
+            value="s"
+            className="search"
+            onClick={ handleTypeSearch }
+          />
+          By name
+        </label>
+        <label
+          className="search_radio"
+          htmlFor="first-letter"
+        >
+          <input
+            type="radio"
+            id="first-letter"
+            data-testid="first-letter-search-radio"
+            name="search"
+            value="f"
+            className="search"
+            onClick={ handleTypeSearch }
+          />
+          By first letter
+        </label>
+      </div>
       <button
+        className="search_btn"
         type="button"
         data-testid="exec-search-btn"
         onClick={ handleSearch }
       >
-        Buscar
+        Search
       </button>
     </div>
   );

@@ -22,9 +22,10 @@
   color: var(--color-forth);
   display: flex;
   font-family: FontsTitles , sans-serif;
-  font-size: 24px;
+  font-size: 20px;
   justify-content: center;
   margin-bottom: 100px;
+  max-width: 340px;
   padding: 4px 32px;
 }
 

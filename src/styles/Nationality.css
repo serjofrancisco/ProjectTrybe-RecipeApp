@@ -1,0 +1,37 @@
+/* border: 1px solid red; */
+
+/* background-color: red; */
+
+@font-face {
+  font-family: FontsTitles;
+  src: url('../fonts/RaspoutineDemiBold_TB.otf');
+}
+
+.nationality_main_container {
+  background-color: var(--color-sec);
+}
+
+.nationality_card_container {
+  align-items: center;
+  background-color: var(--color-main);
+  border-radius: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -20px;
+  padding-bottom: 70px;
+}
+
+.nationality_select {
+  background-color: var(--color-main);
+  border-radius: 4px;
+  border-style: none;
+  box-shadow: 8px 8px 8px -4px rgba(30, 30, 60, 0.452);
+  font-family: FontsTitles , sans-serif;
+  height: 32px;
+  letter-spacing: 1px;
+  margin-bottom: 32px;
+  margin-left: 10px;
+  padding: 4px;
+  width: 340px;
+}
