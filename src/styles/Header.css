@@ -5,10 +5,14 @@
   src: url('../fonts/RaspoutineDemiBold_TB.otf');
 }
 
-h1 {
+h3 {
+  align-items: center;
   color: var(--color-forth);
+  display: flex;
   font-family: FontsTitles , sans-serif;
+  justify-content: center;
   padding-top: 8px;
+  width: 300px;
 }
 
 .header {

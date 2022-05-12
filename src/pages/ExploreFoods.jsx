@@ -17,31 +17,36 @@ function ExploreFoods() {
     history.push(`/foods/${id}`);
   };
   return (
-    <div>
+    <div className="explore_df_main_container">
       <Header title="Explore Foods" />
-      <Link to="/explore/foods/ingredients">
+      <section className="profile_btns_container">
+        <Link to="/explore/foods/ingredients">
+          <button
+            className="explore_df_btns"
+            type="button"
+            data-testid="explore-by-ingredient"
+          >
+            By Ingredient
+          </button>
+        </Link>
+        <Link to="/explore/foods/nationalities">
+          <button
+            className="explore_df_btns"
+            type="button"
+            data-testid="explore-by-nationality"
+          >
+            By Nationality
+          </button>
+        </Link>
         <button
+          className="explore_df_btns"
           type="button"
-          data-testid="explore-by-ingredient"
+          data-testid="explore-surprise"
+          onClick={ surpriseFood }
         >
-          By Ingredient
+          Surprise me!
         </button>
-      </Link>
-      <Link to="/explore/foods/nationalities">
-        <button
-          type="button"
-          data-testid="explore-by-nationality"
-        >
-          By Nationality
-        </button>
-      </Link>
-      <button
-        type="button"
-        data-testid="explore-surprise"
-        onClick={ surpriseFood }
-      >
-        Surprise me!
-      </button>
+      </section>
       <Footer existeFooter="true" />
     </div>
   );

@@ -93,7 +93,7 @@ function DetailsFoods() {
     });
   const recommendationsList = recommendations.map((ele, i) => (
     <div
-      className="details_recommendation_container"
+      className="recipe_recommendation_container"
       data-testid={ `${i}-recomendation-card` }
       key={ ele.idDrink }
     >
@@ -102,7 +102,7 @@ function DetailsFoods() {
         alt="search"
       />
       <p
-        className="details_recommendation_title"
+        className="recipe_recommendation_title"
         data-testid={ `${i}-recomendation-title` }
       >
         { ele.strDrink }
@@ -115,24 +115,24 @@ function DetailsFoods() {
   //   position: 'fixed',
   // };
   return (
-    <div className="details_container">
-      <div className="details_header_container">
+    <div className="recipe_container">
+      <div className="recipe_header_container">
         <img
-          className="details_img"
+          className="recipe_img"
           data-testid="recipe-photo"
           src={ receipe.strMealThumb }
           alt={ `receita ${receipe.strMeal}` }
         />
-        <div className="details_title_container">
+        <div className="recipe_title_container">
           <h2
-            className="details_title"
+            className="recipe_title"
             data-testid="recipe-title"
           >
             { receipe.strMeal }
           </h2>
           {/* <div className="details_container_icons"> */}
           <button
-            className="details_btn"
+            className="recipe_btn"
             type="button"
             data-testid="share-btn"
             onClick={ shareRecipe }
@@ -144,12 +144,12 @@ function DetailsFoods() {
               : (
                 <FiShare2
                   size={ 30 }
-                  className="details_icon"
+                  className="share_icon"
                 />
               )}
           </button>
           <button
-            className="details_btn"
+            className="recipe_btn"
             type="button"
             onClick={ () => toggleFavorite() }
           >
@@ -157,13 +157,13 @@ function DetailsFoods() {
               ? (
                 <MdFavorite
                   size={ 30 }
-                  className="details_icon_checked"
+                  className="fav_icon_checked"
                 />
               )
               : (
                 <MdOutlineFavoriteBorder
                   size={ 30 }
-                  className="details_icon"
+                  className="fav_icon"
                 />
               )}
             {/* <img
@@ -176,21 +176,21 @@ function DetailsFoods() {
         </div>
         {/* </div> */}
         <div
-          className="details_category"
+          className="recipe_category"
           data-testid="recipe-category"
         >
           { receipe.strCategory }
           { receipe.strAlcoholic }
         </div>
       </div>
-      <div className="details_ingredients_container">
+      <div className="recipe_ingredients_container">
         <h5>
           Ingredients:
         </h5>
         { ingredients }
       </div>
       <div
-        className="details_instructions"
+        className="recipe_instructions"
         data-testid="instructions"
       >
         <h5>
@@ -198,7 +198,7 @@ function DetailsFoods() {
         </h5>
         { receipe.strInstructions }
       </div>
-      <div className="details_extra">
+      <div className="recipe_extra">
         <iframe
           width="360"
           height="320"
@@ -225,13 +225,13 @@ function DetailsFoods() {
           </div>
         </Carousel>
       </div>
-      <div className="details_start_recipe_container">
+      <div className="recipe_start_btn_container">
         {(buttonStatus.showButton) && (
           <Link
             to={ `/foods/${receipe.idMeal}/in-progress` }
           >
             <button
-              className="details_start_recipe_btn"
+              className="recipe_start_btn"
               type="button"
               data-testid="start-recipe-btn"
               // style={ style }

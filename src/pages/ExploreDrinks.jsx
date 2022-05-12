@@ -18,23 +18,27 @@ function ExploreDrinks() {
   };
 
   return (
-    <div>
+    <div className="explore_df_main_container">
       <Header title="Explore Drinks" />
-      <Link to="/explore/drinks/ingredients">
+      <section className="profile_btns_container">
+        <Link to="/explore/drinks/ingredients">
+          <button
+            className="explore_df_btns"
+            type="button"
+            data-testid="explore-by-ingredient"
+          >
+            By Ingredient
+          </button>
+        </Link>
         <button
+          className="explore_df_btns"
           type="button"
-          data-testid="explore-by-ingredient"
+          data-testid="explore-surprise"
+          onClick={ surpriseDrink }
         >
-          By Ingredient
+          Surprise me!
         </button>
-      </Link>
-      <button
-        type="button"
-        data-testid="explore-surprise"
-        onClick={ surpriseDrink }
-      >
-        Surprise me!
-      </button>
+      </section>
       <Footer existeFooter="true" />
     </div>
   );

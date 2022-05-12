@@ -1,0 +1,62 @@
+/* border: 1px solid red; */
+
+/* background-color: red; */
+
+@font-face {
+  font-family: FontsTitles;
+  src: url('../fonts/RaspoutineDemiBold_TB.otf');
+}
+
+.ingridients_main_container {
+  background-color: var(--color-sec);
+}
+
+.ingridients_card_container {
+  align-items: center;
+  background-color: var(--color-main);
+  border-radius: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -20px;
+  padding-bottom: 70px;
+}
+
+.ingridients_card {
+  align-items: center;
+  background-color: var(--color-third);
+  border: 1px solid var(--color-main);
+  border-radius: 12px;
+  box-shadow: 12px 14px 8px -5px rgba(30, 30, 60, 0.2);
+  display: flex;
+  flex-direction: column;
+  font-family: FontsTitles , sans-serif;
+  font-size: 20px;
+  margin: 12px 8px;
+  max-height: 100px;
+  min-height: 170px;
+  width: 42vw;
+}
+
+.ingridients_card_title {
+  font-family: FontsTitles , sans-serif;
+  font-size: 16px;
+  padding: 8px;
+}
+
+.ingridients_card_img {
+  border-radius: 12px 12px 0 0;
+  max-height: 199px;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 12px;
+}
+
+.ingridients_card:hover {
+  transform: translateY(-4px);
+}
+
+.ingridients_card:active {
+  transform: translateY(1px);
+}
+

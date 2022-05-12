@@ -12,6 +12,7 @@
   color: var(--color-forth);
   font-family: FontsTitles , sans-serif;
   font-size: 14px;
+  padding: 0 8px;
 }
 
 .food_container, .drink_container {

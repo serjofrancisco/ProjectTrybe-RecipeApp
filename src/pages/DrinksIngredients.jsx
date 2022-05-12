@@ -35,25 +35,35 @@ function DrinksIngredients() {
     imgDrinks();
   }, []);
   return (
-    <div>
+    <div className="ingridients_main_container">
       <Header title="Explore Ingredients" />
-      { drinks12.length > 0 && (
-        drinks12.map((drink, index) => (
-          <button
-            type="button"
-            data-testid={ `${index}-ingredient-card` }
-            key={ index }
-            onClick={ () => filterDrink('filter', 'i', drink) }
-          >
-            <img
-              src={ imgDrinks(drink) }
-              alt={ drink }
-              data-testid={ `${index}-card-img` }
-            />
-            <p data-testid={ `${index}-card-name` }>{ drink }</p>
-          </button>
-        ))
-      )}
+      <div className="ingridients_card_container">
+        { drinks12.length > 0 && (
+          drinks12.map((drink, index) => (
+            <button
+              className="ingridients_card"
+              type="button"
+              data-testid={ `${index}-ingredient-card` }
+              key={ index }
+              onClick={ () => filterDrink('filter', 'i', drink) }
+            >
+              <img
+                className="ingridients_card_img"
+                src={ imgDrinks(drink) }
+                alt={ drink }
+                data-testid={ `${index}-card-img` }
+              />
+              <div
+                className="ingridients_card_title"
+                data-testid={ `${index}-card-name` }
+              >
+                { drink }
+
+              </div>
+            </button>
+          ))
+        )}
+      </div>
       <Footer existeFooter="true" />
     </div>
   );

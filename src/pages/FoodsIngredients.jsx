@@ -35,25 +35,35 @@ function FoodsIngredients() {
   }, []);
 
   return (
-    <div>
+    <div className="ingridients_main_container">
       <Header title="Explore Ingredients" />
-      { ingredients12.length > 0 && (
-        ingredients12.map((ingredient, index) => (
-          <button
-            data-testid={ `${index}-ingredient-card` }
-            key={ index }
-            type="button"
-            onClick={ () => filterIngredients(ingredient) }
-          >
-            <img
-              src={ imgIngredients(ingredient) }
-              alt={ ingredient }
-              data-testid={ `${index}-card-img` }
-            />
-            <p data-testid={ `${index}-card-name` }>{ ingredient }</p>
-          </button>
-        ))
-      )}
+      <div className="ingridients_card_container">
+        { ingredients12.length > 0 && (
+          ingredients12.map((ingredient, index) => (
+            <button
+              className="ingridients_card"
+              data-testid={ `${index}-ingredient-card` }
+              key={ index }
+              type="button"
+              onClick={ () => filterIngredients(ingredient) }
+            >
+              <img
+                className="ingridients_card_img"
+                src={ imgIngredients(ingredient) }
+                alt={ ingredient }
+                data-testid={ `${index}-card-img` }
+              />
+              <div
+                className="ingridients_card_title"
+                data-testid={ `${index}-card-name` }
+              >
+                { ingredient }
+
+              </div>
+            </button>
+          ))
+        )}
+      </div>
       <Footer existeFooter="true" />
     </div>
   );

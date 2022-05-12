@@ -66,9 +66,9 @@ export default function CardFavorite({ element, i, handleDone }) {
           </div>
         </Link>
       </div>
-      <div className="details_icons_container">
+      <div className="recipe_icons_container">
         <button
-          className="details_btn"
+          className="recipe_btn"
           type="button"
           onClick={ shareRecipe }
           id={ id }
@@ -80,19 +80,19 @@ export default function CardFavorite({ element, i, handleDone }) {
             : (
               <FiShare2
                 size={ 30 }
-                className="details_icon"
+                className="share_icon"
               />
             )}
         </button>
         <button
-          className="details_btn"
+          className="recipe_btn"
           type="button"
           id={ id }
           onClick={ removeFav }
         >
           <MdFavorite
             size={ 30 }
-            className="details_icon_checked"
+            className="fav_icon_checked"
           />
           {/* <img
           src={ blackHeartIcon }

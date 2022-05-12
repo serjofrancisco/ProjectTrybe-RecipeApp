@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import './InProgress.css';
 import { useRouteMatch, useHistory } from 'react-router-dom';
+import { MdFavorite, MdOutlineFavoriteBorder } from 'react-icons/md';
+import { FiShare2 } from 'react-icons/fi';
 import { searchDrink } from '../services/TheCockTailDBAPI';
 import { toggleDrink } from '../helpers/favoriteToggle';
-import whiteHeartIcon from '../images/whiteHeartIcon.svg';
-import blackHeartIcon from '../images/blackHeartIcon.svg';
-import shareIcon from '../images/shareIcon.svg';
+// import whiteHeartIcon from '../images/whiteHeartIcon.svg';
+// import blackHeartIcon from '../images/blackHeartIcon.svg';
+// import shareIcon from '../images/shareIcon.svg';
 
 export default function InProgressDrink() {
   const { params } = useRouteMatch();
@@ -88,38 +89,84 @@ export default function InProgressDrink() {
 
   const history = useHistory();
   return (
-    <div>
-      <img
-        src={ recipe.strDrinkThumb }
-        data-testid="recipe-photo"
-        alt={ `receita ${recipe.strDrink}` }
-      />
-      <h1 data-testid="recipe-title">{ recipe.strDrink }</h1>
-      <button
-        type="button"
-        onClick={ shareRecipe }
-        data-testid="share-btn"
-      >
+    <div className="details_container">
+      <div className="details_header_container">
         <img
-          src={ shareIcon }
-          alt="share"
+          className="details_img"
+          src={ recipe.strDrinkThumb }
+          data-testid="recipe-photo"
+          alt={ `receita ${recipe.strDrink}` }
         />
-      </button>
-      {(copied) && (<span>Link copied!</span>)}
-      <button
-        type="button"
-        onClick={ toggleFavorite }
+        <div className="details_title_container">
+          <h4
+            className="details_title"
+            data-testid="recipe-title"
+          >
+            { recipe.strDrink }
+
+          </h4>
+          <button
+            className="details_btn"
+            type="button"
+            onClick={ shareRecipe }
+            data-testid="share-btn"
+          >
+            { copied
+              ? (
+                'Link copied!'
+              )
+              : (
+                <FiShare2
+                  size={ 30 }
+                  className="details_icon"
+                />
+              )}
+          </button>
+          <button
+            className="details_btn"
+            type="button"
+            onClick={ toggleFavorite }
+          >
+            { favorite
+              ? (
+                <MdFavorite
+                  size={ 30 }
+                  className="details_icon_checked"
+                />
+              )
+              : (
+                <MdOutlineFavoriteBorder
+                  size={ 30 }
+                  className="details_icon"
+                />
+              )}
+          </button>
+        </div>
+        <div
+          className="details_category"
+          data-testid="recipe-category"
+        >
+          { recipe.strCategory }
+
+        </div>
+      </div>
+      <div className="details_ingredients_container">
+        <h5>
+          Ingredients:
+        </h5>
+        { ingredients }
+      </div>
+      <div
+        className="details_instructions"
+        data-testid="instructions"
       >
-        <img
-          alt="favorite"
-          src={ (favorite) ? blackHeartIcon : whiteHeartIcon }
-          data-testid="favorite-btn"
-        />
-      </button>
-      <p data-testid="recipe-category">{ recipe.strCategory }</p>
-      { ingredients }
-      <p data-testid="instructions">{ recipe.strInstructions }</p>
+        <h5>
+          Instructions:
+        </h5>
+        { recipe.strInstructions }
+      </div>
       <button
+        className="in_progress_btn"
         type="button"
         data-testid="finish-recipe-btn"
         disabled={ progress.length < ingredients.length }
