@@ -56,7 +56,7 @@ function Favorites() {
           Drinks
         </button>
       </nav>
-      <main>
+      <main className="fav_card_container">
         {
           recipesDone?.map((element, i) => (
             <CardFavorite

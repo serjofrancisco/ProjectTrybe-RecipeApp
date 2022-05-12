@@ -115,3 +115,7 @@
   position: fixed;
   width: 120px;
 }
+
+.details_start_recipe_btn:active {
+  transform: translateY(4px);
+}

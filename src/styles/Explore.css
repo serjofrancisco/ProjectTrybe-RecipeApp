@@ -30,7 +30,6 @@
 .explore_card {
   align-items: center;
   background-color: var(--color-third);
-  background-image: '../images/Chef_640x360.jpg';
   border: 1px solid var(--color-main);
   border-radius: 12px;
   box-shadow: 12px 14px 8px -5px rgba(30, 30, 60, 0.2);
