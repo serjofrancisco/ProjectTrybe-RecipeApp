@@ -42,7 +42,7 @@ export default function Login() {
         <label htmlFor="userEmail">
           <input
             className="login_input"
-            placeholder="Type your email"
+            placeholder="Digite um Email válido"
             type="email"
             id="userEmail"
             data-testid="email-input"
@@ -53,7 +53,7 @@ export default function Login() {
         <label htmlFor="pass">
           <input
             className="login_input"
-            placeholder="Type your password"
+            placeholder="Digite uma senha com 7 ou mais caracteres"
             type="password"
             id="pass"
             data-testid="password-input"
