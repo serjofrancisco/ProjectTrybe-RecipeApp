@@ -1,7 +1,7 @@
-/* body {
-  background-color: #ccc;
-  background-image: url('./images/Chef_640x360.jpg');
-} */
+body {
+  height: 640px;
+  width: 360px;
+}
 
 /* border: 1px solid red; */
 

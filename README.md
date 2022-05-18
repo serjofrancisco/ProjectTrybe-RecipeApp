@@ -9,6 +9,6 @@ Ultimo Projeto do módulo de Front-End Que fiz na Trybe, onde treinamos estas ha
 
     Este Projeto Foi feito em grupo com os ótimos profissioais, (João Pasip)[https://github.com/joao-pasip], [Italo Lima](https://github.com/Italo9), [Paulo Porto](https://github.com/prtpj1) e [Felipe Fraxe](https://github.com/felipefraxe).
 
-    É uma aplicação voltada para mobile, por isso se for abrir no computador por favor utilizar a resolução 360 x 640. 
+    É uma aplicação voltada para mobile.
 
-    Para rodar localmente é necessário fazer o clone od repositório, depois instalar as dependencias com 'npm install' e rodar com 'npm start'. Ou pode acessar [aqui](pudim.com.br).
+    Para rodar localmente é necessário fazer o clone od repositório, depois instalar as dependencias com 'npm install' e rodar com 'npm start'. Ou pode acessar [aqui](https://fsipp-recipe-app.vercel.app/).
