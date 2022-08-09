@@ -58,7 +58,6 @@ Ou, acesse [aqui](https://fsipp-recipe-app.vercel.app/)
 
 As seguintes ferramentas foram usadas na construção do projeto:
  - **[React](https://pt-br.reactjs.org/)**
-   - **[Bootstrap](https://getbootstrap.com//)**
-
+ - **[Bootstrap](https://getbootstrap.com//)**
 
 > Veja o arquivo  [package.json](https://github.com/serjofrancisco/ProjectTrybe-RecipeApp/blob/main/package.json)
