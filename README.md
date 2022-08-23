@@ -1,6 +1,6 @@
-<h1 align="center">Blogs Api</h1>
+<h1 align="center">Recipe APP</h1>
 
-<h3 align="center">Neste projeto Desenvolvi uma API e um banco de dados para a produção de conteúdo para um blog</h3>
+<h3 align="center">Neste projeto desenvolvemos um app de receitas com uso de duas APIs</h3>
 
 ## 💻 Sobre o projeto
 
